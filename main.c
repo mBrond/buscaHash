@@ -7,11 +7,12 @@
 int calculoCnpj(char* cnpj){
     int soma = 0, i;
     int ascii;
-    for(i=0;i<8;i++){
-        ascii = cnpj[i];
-        soma = (soma + ascii);
-    }
-    return soma;
+    int cnpjInt = atoi(cnpj);
+//    for(i=0;i<8;i++){
+//        ascii = cnpj[i];
+//        soma = (soma + ascii);
+//    }
+    return cnpjInt * 2654435761 % 10000;
 }
 
 int calculoNome(char* linha){
@@ -22,7 +23,7 @@ int calculoNome(char* linha){
         soma += linha[i];
         i++;
     }
-    return soma;
+    return soma * 2654435761 % 10000;
 }
 
 int verifica_repeticao(int* array, int tamanho, int numero) {
@@ -49,7 +50,7 @@ int main(){
     char cnpj[9];
     
 	// !!!RETIRAR!!!
-	int qtdParada =200000;
+	int qtdParada =900000;
     int chaves[qtdParada];
     int qtdColi = 0, vetChave=0;
     
@@ -72,7 +73,7 @@ int main(){
         
 		
 		if(verifica_repeticao(chaves, vetChave, chave)==1){
-			printf("!!!!COLISAO PARA %d\n", chave);
+//			printf("!!!!COLISAO PARA %d\n", chave);
 			qtdColi++;
 		}
 		chaves[vetChave] = chave;
