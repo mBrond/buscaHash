@@ -30,10 +30,10 @@ int verifica_repeticao(int* array, int tamanho, int numero) {
     int i;
     for (i = 0; i < tamanho; i++) {
         if (array[i] == numero) {
-            return 1; // número encontrado
+            return 1; // n?mero encontrado
         }
     }
-    return 0; // número não encontrado
+    return 0; // n?mero n?o encontrado
 }
 
 int main(){
