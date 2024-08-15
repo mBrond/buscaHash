@@ -36,7 +36,7 @@ int main() {
                 printf("Opcao invalida! Tente novamente.\n");
                 break;
         }
-    } while (opcao != 3); // Corrigido para sair com a opção 3
+    } while (opcao != 3); 
 
     return 0;
 }
