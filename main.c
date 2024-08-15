@@ -1,5 +1,5 @@
-#include "utilidades.h"
-#include "hash.h"
+#include "utilidades.c"
+#include "hash.c"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,7 +10,7 @@ int main() {
     memset(tabelaHashCNPJ, 0, sizeof(tabelaHashCNPJ));
     memset(tabelaHashNome, 0, sizeof(tabelaHashNome));
 
-    int maxLinhas = 100; // Número máximo de linhas que deseja ler
+    int maxLinhas = 100; /* Número máximo de linhas que deseja ler*/
     lerArquivo("C:\\Users\\lucas\\Desktop\\POD\\K3241.K03200Y0.D40713.EMPRECSV", maxLinhas);
 
     int opcao;
@@ -21,7 +21,7 @@ int main() {
         printf("3. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
-        getchar(); // Limpar o buffer do teclado
+        getchar(); /* Limpar o buffer do teclado*/
 
         switch (opcao) {
             case 1:

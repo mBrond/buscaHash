@@ -2,15 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-unsigned int primo = 2654435761; // Constante para a função de hash
+unsigned int primo = 2654435761; // Constante para a função de hash */
 
-// Função de hash para CNPJ, transforma o CNPJ em um índice da tabela hash
+/* Função de hash para CNPJ, transforma o CNPJ em um índice da tabela hash*/
 unsigned int funcaoHashCNPJ(char* cnpj) {
     int cnpjInt = atoi(cnpj);
     return (unsigned int)(cnpjInt * primo) % TAMANHO_TABELA;
 }
 
-// Função de hash para Nome, transforma o nome em um índice da tabela hash
+/* Função de hash para Nome, transforma o nome em um índice da tabela hash*/
 unsigned int funcaoHashNome(char* nome) {
     int soma = 0;
     int i = 0;
@@ -21,21 +21,21 @@ unsigned int funcaoHashNome(char* nome) {
     return (unsigned int)(soma * primo) % TAMANHO_TABELA;
 }
 
-// Insere uma empresa na tabela hash, tanto pela chave CNPJ quanto Nome
+/* Insere uma empresa na tabela hash, tanto pela chave CNPJ quanto Nome*/
 void inserirTabelaHash(Empresa* emp) {
     unsigned int indiceCNPJ = funcaoHashCNPJ(emp->cnpj);
     unsigned int indiceNome = funcaoHashNome(emp->nome);
 
-    // Inserção na tabela hash usando o CNPJ como chave
+    // Inserção na tabela hash usando o CNPJ como chave*/
     emp->proximo = tabelaHashCNPJ[indiceCNPJ];
     tabelaHashCNPJ[indiceCNPJ] = emp;
 
-    // Inserção na tabela hash usando o Nome como chave
+    // Inserção na tabela hash usando o Nome como chave*/
     emp->proximo = tabelaHashNome[indiceNome];
     tabelaHashNome[indiceNome] = emp;
 }
 
-// Busca uma empresa na tabela hash usando o CNPJ como chave
+/* Busca uma empresa na tabela hash usando o CNPJ como chave*/
 Empresa* buscarTabelaHashCNPJ(char* cnpj) {
     unsigned int indice = funcaoHashCNPJ(cnpj);
     Empresa* emp = tabelaHashCNPJ[indice];
@@ -48,7 +48,7 @@ Empresa* buscarTabelaHashCNPJ(char* cnpj) {
     return NULL;
 }
 
-// Busca uma empresa na tabela hash usando o Nome como chave
+/* Busca uma empresa na tabela hash usando o Nome como chave*/
 Empresa* buscarTabelaHashNome(char* nome) {
     unsigned int indice = funcaoHashNome(nome);
     Empresa* emp = tabelaHashNome[indice];
@@ -61,7 +61,7 @@ Empresa* buscarTabelaHashNome(char* nome) {
     return NULL;
 }
 
-// Função para buscar e exibir os dados de uma empresa usando o CNPJ
+/* Função para buscar e exibir os dados de uma empresa usando o CNPJ*/
 void buscarPorCNPJ() {
     char cnpjTeste[20];
     printf("Digite o CNPJ para buscar: ");
@@ -82,12 +82,12 @@ void buscarPorCNPJ() {
     }
 }
 
-// Função para buscar e exibir os dados de uma empresa usando o Nome
+/* Função para buscar e exibir os dados de uma empresa usando o Nome*/
 void buscarPorNome() {
     char nomeTeste[MAXCHAR];
     printf("Digite o nome para buscar: ");
     fgets(nomeTeste, MAXCHAR, stdin);
-    removerNovaLinha(nomeTeste); // Remove a nova linha ao final
+    removerNovaLinha(nomeTeste); // Remove a nova linha ao final*/
 
     Empresa* resultadoNome = buscarTabelaHashNome(nomeTeste);
 
