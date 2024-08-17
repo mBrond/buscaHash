@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <locale.h>
 
 /* Estrutura para armazenar os dados de uma empresa */
 /* Para lidar com colisões na tabela hash */
@@ -25,7 +26,7 @@ Empresa* tabelaHashNome[TAMANHO_TABELA];
 */
 
 #define MAXCHAR 1000
-const char* caminhoArquivo = "C:\\Users\\lucas\\Desktop\\POD\\buscaHash\\dados.txt";
+const char* caminhoArquivo = "K3241.K03200Y0.D40713.EMPRECSV";
 
 /* Função auxiliar para limpar o formato do CNPJ (remover pontos e traços) */
 void limparFormatoCNPJ(char* cnpj) {
@@ -213,7 +214,7 @@ void buscarPorCNPJNoArquivo(const char* caminho, const char* cnpj) {
     }
     
     if (!encontrado) {
-        printf("CNPJ não encontrado.\n");
+        printf("CNPJ n�o encontrado.\n");
     }
     
     fclose(arq);
@@ -287,6 +288,7 @@ void buscarPorNome(){
 
 /* Função principal */
 int main() {
+	setlocale(LC_ALL, "portuguese");
     int opcao;
     do {
         printf("\n------ Menu ------\n");
